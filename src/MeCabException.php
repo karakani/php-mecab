@@ -8,6 +8,8 @@
 
 namespace Youaoi\MeCab;
 
+use Throwable;
+
 /**
  * Class MeCabException
  * @package Youaoi\MeCab
@@ -19,7 +21,14 @@ class MeCabException extends \Exception
      */
     public $instance;
 
-    public function __construct(MeCab $instance, string $message = "", int $code = 0, Throwable $previous = null)
+    /**
+     * MeCabException constructor.
+     * @param MeCab $instance
+     * @param string $message
+     * @param int $code
+     * @param Throwable|null $previous
+     */
+    public function __construct(MeCab $instance, $message = "", int $code = 0, Throwable $previous = null)
     {
         $this->instance = $instance;
         parent::__construct($message, $code, $previous);

@@ -210,11 +210,12 @@ class MeCab
                 }
                 return $words;
             } else {
-                throw new MeCabException(sprintf('Error text analysis.'));
+                throw new MeCabException($this, 'Error text analysis.');
             }
         } finally {
             @unlink($this->tmpFile);
         }
+        return [];
     }
 
     /**
@@ -225,6 +226,23 @@ class MeCab
     public static function parse($text)
     {
         return (new MeCab())->analysis($text);
+    }
+
+    /**
+     * 形態素を配列で返します。
+     * 형태소를 배열로 반환한다.
+     *
+     * @param string $text
+     * @return array
+     * @throws MeCabException
+     * @author yhbyun
+     * @see  https://github.com/yhbyun/php-mecab
+     */
+    public static function split($text)
+    {
+        return array_map(function ($word) {
+            return $word->text;
+        }, (new MeCab())->analysis($text));
     }
 
     /**

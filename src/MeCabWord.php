@@ -24,7 +24,7 @@ namespace Youaoi\MeCab;
  */
 class MeCabWord
 {
-    protected const APPENDS = ['sortText'];
+    const APPENDS = ['sortText'];
 
     protected $str;
     protected $text;
