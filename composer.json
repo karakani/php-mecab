@@ -5,6 +5,7 @@
     "keywords": ["mecab"],
     "homepage": "https://github.com/youaoi/php-mecab",
     "license": "MIT",
+    "version": "1.0.0",
     "authors": [
         {
             "name": "ateliee",
