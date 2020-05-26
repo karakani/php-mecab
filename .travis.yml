@@ -11,4 +11,4 @@ before_script:
  - composer install
 
 script:
- - phpunit test/TravisTest.php
+ - ./vendor/bin/phpunit test/TravisTest.php
